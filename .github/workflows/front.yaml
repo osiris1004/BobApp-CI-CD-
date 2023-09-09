@@ -25,7 +25,12 @@ jobs:
               npm install
 
     - name: Run tests
-      run: npm run test:headless
+      run: |
+              cd front
+              npm run test
 
-    - name: Build
-      run: npm run build:prod
+      
+    - name: Run Build
+      run: |
+              cd front
+              npm run build
