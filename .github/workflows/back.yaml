@@ -23,7 +23,7 @@ jobs:
     - name: Build Spring Boot JAR
       run: |
         cd back 
-        ./mvnw clean package -DskipTests 
+        mvn clean package
 
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v2
