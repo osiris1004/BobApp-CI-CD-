@@ -43,7 +43,12 @@ jobs:
           
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
-        
+
+    - name: remove node_modules to avoid docker build error
+      run : |
+              cd front
+              rm -r node_modules
+      
     - name: Build and push
       uses: docker/build-push-action@v4
       with:
