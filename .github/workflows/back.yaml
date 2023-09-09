@@ -10,7 +10,7 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-        working-directory : .back
+        working-directory : ./back
 
     steps:
     - name: Checkout code
