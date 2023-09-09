@@ -45,4 +45,4 @@ jobs:
           context: ./back
           file: ./back/Dockerfile  
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/OC-Project-10-Back-end:latest  
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/oc-project-10-back-end:latest  
