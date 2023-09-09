@@ -56,3 +56,4 @@ jobs:
           file: ./front/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          
