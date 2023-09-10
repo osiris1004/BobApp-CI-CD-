@@ -1,38 +1,24 @@
 on:
-  # Trigger analysis when pushing to your main branches, and when creating a pull request.
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request. 
   push:
     branches:
       - main
-     
 
-name: Sonarqube Workflow
+
+name: SonarQube Scan
 jobs:
   sonarqube:
+    name: SonarQube Trigger
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checking out
+      uses: actions/checkout@master
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
-
-
-    - name: Cache SonarQube packages
-      uses: actions/cache@v1
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@v1.2.0
       with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-    - name: Cache Maven packages
-      uses: actions/cache@v1
-      with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-    - name: Build and analyze
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      run: |
-        cd back 
-        mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        host: ${{ secrets.SONARQUBE_HOST }}
+        login: ${{ secrets.SONARQUBE_TOKEN }}
