@@ -1,14 +1,24 @@
+name: Build
 on:
   push:
     branches:
-      - main
-      
-name: SonarQube Scan
+      - main # the name of your main branch
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube Trigger
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: '11'  
         
     - name: Cache SonarQube packages
       uses: actions/cache@v1
