@@ -23,12 +23,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
-        run: | 
-              cd back
-              mvn clean verify sonar:sonar \ 
-              --define sonar.host.url=https://sonarcloud.io \ 
-              -Dsonar.organization=osiris1004 \ 
-              -Dsonar.login= 3ce21ed00816c3beb76bb5e3c254cb53ef001e4c
+
 
 
               
