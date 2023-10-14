@@ -33,8 +33,7 @@ jobs:
             -Dsonar.tests=front/src
             -Dsonar.typescript.lcov.reportPaths=front/coverage/lcov.info
             -Dsonar.ts.tslintconfigpath=tslint.json
-            -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
-            -Donar.test.inclusions=front/**/*.spec.ts
+       
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
