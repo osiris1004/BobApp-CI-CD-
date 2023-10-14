@@ -33,6 +33,8 @@ jobs:
             -Dsonar.tests=front/src
             -Dsonar.typescript.lcov.reportPaths=front/coverage/lcov.info
             -Dsonar.ts.tslintconfigpath=tslint.json
+            -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
+            -Dsonar.test.inclusions=front/**/*.spec.ts
        
           
         env:
