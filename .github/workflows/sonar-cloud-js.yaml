@@ -29,6 +29,8 @@ jobs:
           args: >
             -Dsonar.organization=osiris1004
             -Dsonar.projectKey=osiris1004_OC-Project-10
+            -Dsonar.sources=front/src
+            -Dsonar.tests=front/src
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
