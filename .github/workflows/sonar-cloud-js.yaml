@@ -31,7 +31,10 @@ jobs:
             -Dsonar.projectKey=osiris1004_OC-Project-10
             -Dsonar.sources=front/src
             -Dsonar.tests=front/src
-            -Dsonar.javascript.lcov.reportPaths=front/coverage/lcov.info
+            -Dsonar.typescript.lcov.reportPaths=front/coverage/lcov.info
+            -Dsonar.ts.tslintconfigpath=tslint.json
+            -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
+            -Donar.test.inclusions=front/**/*.spec.ts
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
