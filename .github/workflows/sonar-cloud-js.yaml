@@ -29,8 +29,8 @@ jobs:
           args: >
             -Dsonar.organization=osiris1004
             -Dsonar.projectKey=osiris1004_OC-Project-10
-            -Dsonar.sources= front/src
-            -Dsonar.javascript.lcov.reportPaths=front/coverage/lcov.info
+            -Dsonar.sources= ./front/src
+            -Dsonar.javascript.lcov.reportPaths=./front/coverage/lcov.info
           
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
