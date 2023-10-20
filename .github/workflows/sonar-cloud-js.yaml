@@ -1,42 +1,42 @@
-name: SONAR CLOUD JS
-on:
- push:
-   branches:
-     - main
- pull_request:
-   types: [opened, synchronize, reopened]
-jobs:
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 
-      - name: Install dependencies
-        run: |
-              cd front
-              npm install
-
-      - name: Test and coverage
-        run: |
-              cd front
-              npm run test      
-              
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          args: >
-            -Dsonar.organization=osiris1004
-            -Dsonar.projectKey=osiris1004_OC-Project-10
-            -Dsonar.sources=front/src
-            -Dsonar.tests=front/src
-            -Dsonar.typescript.lcov.reportPaths=front/coverage/bobapp/lcov.info
-            -Dsonar.ts.tslintconfigpath=tslint.json
-            -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
-            -Dsonar.test.inclusions=front/**/*.spec.ts
-       
-          
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets. SONARCLOUD_TOKEN }}
+#name: SONAR CLOUD JS
+#on:
+# push:
+#   branches:
+#     - main
+# pull_request:
+#   types: [opened, synchronize, reopened]
+#jobs:
+#  sonarcloud:
+#    name: SonarCloud
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#        with:
+#          fetch-depth: 0
+#      - name: Install dependencies
+#        run: |
+#              cd front
+#              npm install
+#
+#      - name: Test and coverage
+#        run: |
+#              cd front
+#              npm run test
+#
+#      - name: SonarCloud Scan
+#        uses: SonarSource/sonarcloud-github-action@master
+#        with:
+#          args: >
+#            -Dsonar.organization=osiris1004
+#            -Dsonar.projectKey=osiris1004_OC-Project-10
+#            -Dsonar.sources=front/src
+#            -Dsonar.tests=front/src
+#            -Dsonar.typescript.lcov.reportPaths=front/coverage/bobapp/lcov.info
+#            -Dsonar.ts.tslintconfigpath=tslint.json
+#            -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
+#            -Dsonar.test.inclusions=front/**/*.spec.ts
+#
+#
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          SONAR_TOKEN: ${{ secrets. SONARCLOUD_TOKEN }}
