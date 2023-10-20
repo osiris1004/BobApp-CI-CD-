@@ -22,6 +22,10 @@ jobs:
         run: |
               cd front
               npm run test
+      - name: Scanner
+        run: |
+                cd front
+                npm run sonar        
               
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
