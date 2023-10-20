@@ -56,7 +56,7 @@ jobs:
 
 
     Back-CI/CD:
-    name: Spring-Boot CI/CD
+     name: Spring-Boot CI/CD
 
     steps:
       - name: Checkout code
