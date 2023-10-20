@@ -21,12 +21,7 @@ jobs:
       - name: Test and coverage
         run: |
               cd front
-              npm run test
-              
-      - name: Scanner
-        run: |
-                cd front
-                npm run sonar        
+              npm run test      
               
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
@@ -36,7 +31,7 @@ jobs:
             -Dsonar.projectKey=osiris1004_OC-Project-10
             -Dsonar.sources=front/src
             -Dsonar.tests=front/src
-            -Dsonar.typescript.lcov.reportPaths=front/coverage/lcov.info
+            -Dsonar.typescript.lcov.reportPaths=front/coverage/bobapplcov.info
             -Dsonar.ts.tslintconfigpath=tslint.json
             -Dsonar.exclusions=front/**/node_modules/**,**/assets/**,**/*.spec.ts
             -Dsonar.test.inclusions=front/**/*.spec.ts
