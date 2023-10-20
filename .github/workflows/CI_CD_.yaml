@@ -7,7 +7,7 @@ on:
 
 jobs:
   Front_end :
-    name: Angular CI/CD
+    build:
 
     runs-on: ubuntu-latest
 
@@ -77,8 +77,7 @@ jobs:
 
 
 
-  Back_end :
-    name: Spring Boot CI/CD
+  build:
 
     runs-on: ubuntu-latest
 
