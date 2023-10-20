@@ -28,13 +28,17 @@ jobs:
         run: |
           npm install
 
+      - name: Run tests
+        run: |
+          npm run test 
+
       - name: Run Build
         run: |
           npm run build 
 
-      - name: Run tests
+      - name: remove node_modules to avoid docker build error
         run: |
-          npm run test 
+          rm -r node_modules
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
@@ -52,6 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets. SONARCLOUD_TOKEN }}
+
+
 
 
   Back_end :
