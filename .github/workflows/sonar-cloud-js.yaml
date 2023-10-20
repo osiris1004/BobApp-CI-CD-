@@ -22,6 +22,7 @@ jobs:
         run: |
               cd front
               npm run test
+              
       - name: Scanner
         run: |
                 cd front
