@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  Front-Ci-CD:
+  front-end-ci:
     name: Angular CI/CD
     runs-on: ubuntu-latest
 
@@ -49,9 +49,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets. SONARCLOUD_TOKEN }}
 
-  docker-front-CI-CD:
-    name: Docker Build/Publish/Angualar
-    needs: [Front-Ci-CD]
+  docker-front:
+    name: Deploy Angualar to docker HUB
+    needs: [front-end-ci]
     runs-on: ubuntu-latest
     
     steps:
