@@ -65,10 +65,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: remove node_modules to avoid docker build error
-        run : |
-          rm -r node_modules
-
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
@@ -145,7 +141,7 @@ jobs:
       - name: Build and push Docker image (back)
         uses: docker/build-push-action@v4
         with:
-          context: back
+          context: ./back
           file: ./back/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/oc-project-10-back-end:latest
