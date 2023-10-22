@@ -51,6 +51,7 @@ jobs:
 
   docker-front-CI-CD:
     name: Docker Build/Publish/Angualar
+    needs: [Front-Ci-CD]
     runs-on: ubuntu-latest
     
     steps:
@@ -131,6 +132,7 @@ jobs:
 
   docker-back-CI-CD:
     name: Docker Build/Publish/Spring-boot
+    needs: [Back-CI-CD]
     runs-on: ubuntu-latest
     
     steps:
