@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
-#FROM node:latest as build
->>>>>>> 5af2a4946a1abe3ccb677140a0f3963f01bf14f8
+
 FROM node:19.5.0-alpine as build
 
 WORKDIR /usr/local/app
