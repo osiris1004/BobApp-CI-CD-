@@ -1,5 +1,6 @@
 package com.openclassrooms.bobapp.service;
 
+import java.security.SecureRandom;
 import java.util.List;
 import java.util.Random;
 
@@ -19,7 +20,8 @@ public class JokeService {
 
     public Joke getRandomJoke() {
         List<Joke> jokes = this.jsonReader.getJokes();
-        Random generator = new Random();
+        SecureRandom generator = new SecureRandom();
+        // Random generator = new Random();
         int randomIndex = generator.nextInt(jokes.size());
         return jokes.get(randomIndex);
     }
